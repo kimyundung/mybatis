@@ -3,11 +3,27 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--映射配置文件-->
-<mapper namespace="user">
+<mapper namespace="userMapper">
     <!--namespace : 命名空间 -> 与id(属性)共同构成<唯一标识>
         resultType: 返回结果类型(自动映射封装) -> 要封装的实体的全路径
     -->
     <select id="findAll" resultType="com.stone.domain.User">
         select * from user
     </select>
+
+    <!--新增-->
+    <insert id="saveUser" parameterType="com.stone.domain.User">
+        insert into user(id,name,email,address,sex,version)
+        values(#{id},#{name},#{email},#{address},#{sex},#{version})
+    </insert>
+
+    <!--更新-->
+    <update id="updateUser" parameterType="com.stone.domain.User">
+        update user set name = #{name}, email = #{email}, sex = #{sex}, address = #{address} where id = #{id}
+    </update>
+    
+    <!--删除-->
+    <delete id="deleteUser" parameterType="long">
+        delete from user where id = #{id}
+    </delete>
 </mapper>
