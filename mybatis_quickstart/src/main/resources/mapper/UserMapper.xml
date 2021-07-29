@@ -7,18 +7,18 @@
     <!--namespace : 命名空间 -> 与id(属性)共同构成<唯一标识>
         resultType: 返回结果类型(自动映射封装) -> 要封装的实体的全路径
     -->
-    <select id="findAll" resultType="com.stone.domain.User">
+    <select id="findAll" resultType="uSer">
         select * from user
     </select>
 
     <!--新增-->
-    <insert id="saveUser" parameterType="com.stone.domain.User">
+    <insert id="saveUser" parameterType="User">
         insert into user(id,name,email,address,sex,version)
         values(#{id},#{name},#{email},#{address},#{sex},#{version})
     </insert>
 
     <!--更新-->
-    <update id="updateUser" parameterType="com.stone.domain.User">
+    <update id="updateUser" parameterType="user">
         update user set name = #{name}, email = #{email}, sex = #{sex}, address = #{address} where id = #{id}
     </update>
     

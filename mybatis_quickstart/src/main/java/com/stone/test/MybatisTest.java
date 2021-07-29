@@ -48,7 +48,6 @@ public class MybatisTest {
         int insert = sqlSession.insert("userMapper.saveUser", user);
 
         sqlSession.commit(); //手动提交事务
-
         sqlSession.close();
     }
 
@@ -62,7 +61,6 @@ public class MybatisTest {
         int update = sqlSession.update("userMapper.updateUser", user);
 
         sqlSession.commit();
-
         sqlSession.close();
     }
 
