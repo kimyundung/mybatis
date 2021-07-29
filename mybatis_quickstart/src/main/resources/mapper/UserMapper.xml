@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射配置文件-->
+<mapper namespace="user">
+    <!--namespace : 命名空间 -> 与id(属性)共同构成<唯一标识>
+        resultType: 返回结果类型(自动映射封装) -> 要封装的实体的全路径
+    -->
+    <select id="findAll" resultType="com.stone.domain.User">
+        select * from user
+    </select>
+</mapper>
