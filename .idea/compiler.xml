@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mybatis_quickstart" />
+        <module name="mybatis_dao" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="mybatis_quickstart" target="11" />
+      <module name="mybatis_dao" target="1.11" />
+      <module name="mybatis_quickstart" target="1.11" />
     </bytecodeTargetLevel>
   </component>
 </project>
