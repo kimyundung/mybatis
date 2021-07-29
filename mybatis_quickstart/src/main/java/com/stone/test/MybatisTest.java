@@ -21,12 +21,16 @@ public class MybatisTest {
         InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
 
         // 2. 获取sqlSessionFactory工厂对象 (sqlSession是会话对象)
+        // *****这里做了很重要的事啊*****
+        // (1) 进行了初始化配置: 使用dom4j解析了配置文件, 将映射配置文件中的配置封装了一个一个的MappedStatement对象, 将这些MappedStatement对象封装成Map集合
+        // (2) 创建了SqlSessionFactory工厂对象
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
 
         // 3. 获取sqlSession会话对象
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
         // 4. 执行sql : 参数 -> statementId -> namespace.id
+        // sqlSession本身不会直接操作数据库, 委派给执行器来操作(Executor -> 执行JDBC代码), 参数statement就是Map集合中的key
         List<User> userList = sqlSession.selectList("userMapper.findAll");
 
         // 5. 遍历打印
