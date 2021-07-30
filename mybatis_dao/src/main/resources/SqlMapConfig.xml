@@ -29,9 +29,20 @@
         </environment>
     </environments>
 
-    <!--进入映射配置文件-->
+    <!--引入映射配置文件-->
     <mappers>
         <mapper resource="mapper/UserMapper.xml"/>
+
+        <!--Mapper代理开发模式的配置文件引入-->
+
+        <!--方式 1:-->
+        <!--<mapper resource="com/stone/mapper/UserMapper.xml"/>-->
+
+        <!--方式 2: 通过引入接口: 前提条件 -> 接口和配置文件同包同名-->
+        <!--<mapper class="com.stone.mapper.UserMapper"/>-->
+
+        <!--方式 3: 批量进入接口 -> 最常用-->
+        <package name="com.stone.mapper"/>
     </mappers>
 
 </configuration>
